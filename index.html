@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#f7f4ee">
+<title>味旅 TASTETRIP｜旅行與美食探索平台</title>
+<style>
+:root{--ink:#222820;--muted:#72776e;--cream:#f7f4ee;--paper:#fffdf8;--green:#355b45;--lime:#dce8c9;--orange:#e78352;--line:#e7e2d8;--shadow:0 18px 50px rgba(36,45,35,.09)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--cream);color:var(--ink);font-family:Inter,"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;line-height:1.6}a{color:inherit;text-decoration:none}button,input,select{font:inherit}button{cursor:pointer;border:0}.wrap{width:min(1160px,calc(100% - 40px));margin:auto}
+nav{height:76px;display:flex;align-items:center;justify-content:space-between;gap:24px}.brand{font-size:1.35rem;font-weight:900;letter-spacing:-.04em;display:flex;align-items:center;gap:10px}.brand-mark{display:grid;place-items:center;width:36px;height:36px;background:var(--green);color:white;border-radius:12px;font-size:1.1rem}.brand span:last-child{color:var(--green)}.navlinks{display:flex;gap:27px;color:#5d625b;font-size:.92rem}.navlinks a:hover{color:var(--orange)}.nav-cta{background:var(--green);color:white;border-radius:999px;padding:10px 18px;font-size:.88rem}
+.hero{display:grid;grid-template-columns:1fr .9fr;gap:45px;align-items:center;padding:45px 0 65px}.eyebrow{display:inline-flex;align-items:center;gap:8px;color:var(--green);font-weight:800;font-size:.78rem;letter-spacing:.13em;text-transform:uppercase}.eyebrow:before{content:"";width:22px;height:2px;background:var(--orange)}h1{font-size:clamp(2.7rem,5.3vw,5rem);line-height:1.12;letter-spacing:-.06em;margin:18px 0 20px;font-weight:900}h1 em{font-style:normal;color:var(--green);position:relative}h1 em:after{content:"";position:absolute;left:0;bottom:1px;width:100%;height:8px;background:var(--lime);z-index:-1;border-radius:8px}.hero p{font-size:1.05rem;color:var(--muted);max-width:500px;margin:0 0 27px}.searchbox{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:10px;display:flex;gap:8px;box-shadow:var(--shadow);max-width:600px}.searchbox input{border:0;outline:0;background:transparent;min-width:0;flex:1;padding:9px 12px}.searchbox button{background:var(--orange);color:white;border-radius:12px;padding:12px 19px;font-weight:800}.hero-note{display:flex;gap:15px;align-items:center;margin-top:19px;color:var(--muted);font-size:.8rem}.avatars{display:flex}.avatars span{display:grid;place-items:center;width:29px;height:29px;border:2px solid var(--cream);border-radius:50%;margin-left:-7px;background:#e7d5bb}.avatars span:first-child{margin-left:0}.hero-art{position:relative;min-height:420px}.hero-photo{position:absolute;inset:0 22px 22px 0;border-radius:28px;overflow:hidden;background:linear-gradient(140deg,#8d9c74,#e6b37e 52%,#c95d3e)}.hero-photo img{width:100%;height:100%;object-fit:cover;display:block}.photo-overlay{position:absolute;inset:0;background:linear-gradient(180deg,transparent 48%,rgba(21,30,22,.68))}.photo-caption{position:absolute;bottom:24px;left:25px;color:white}.photo-caption strong{display:block;font-size:1.4rem}.photo-caption small{opacity:.85}.floating-card{position:absolute;right:0;top:35px;background:var(--paper);padding:16px 18px;border-radius:18px;box-shadow:var(--shadow);max-width:180px}.floating-card b{display:block;font-size:1.1rem}.floating-card small{color:var(--muted)}.floating-card .stars{color:#d78b39;letter-spacing:2px}.stamp{position:absolute;right:12px;bottom:0;background:var(--lime);border-radius:50%;width:105px;height:105px;display:grid;place-items:center;text-align:center;font-size:.8rem;font-weight:900;transform:rotate(9deg);border:1px solid #c9d9b5}
+section{padding:48px 0}.section-head{display:flex;align-items:end;justify-content:space-between;gap:20px;margin-bottom:25px}.section-head h2{font-size:clamp(1.7rem,3vw,2.5rem);line-height:1.2;letter-spacing:-.04em;margin:8px 0 0}.section-head p{margin:0;color:var(--muted);max-width:420px;font-size:.92rem}.text-link{font-weight:800;color:var(--green);white-space:nowrap}.destinations{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}.destination{height:245px;border-radius:20px;overflow:hidden;position:relative;background:#b4a28a;isolation:isolate}.destination img{width:100%;height:100%;object-fit:cover;transition:transform .4s}.destination:hover img{transform:scale(1.06)}.destination:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 35%,rgba(13,24,17,.76));z-index:0}.dest-info{position:absolute;bottom:17px;left:17px;color:white;z-index:1}.dest-info h3{margin:0;font-size:1.35rem}.dest-info span{font-size:.82rem;opacity:.88}.dest-count{position:absolute;top:13px;right:13px;z-index:1;background:rgba(255,253,248,.9);border-radius:999px;padding:5px 10px;font-size:.75rem;font-weight:800}
+.filters{display:flex;gap:9px;flex-wrap:wrap;margin:0 0 23px}.filter{background:transparent;border:1px solid #d9d4c9;padding:8px 15px;border-radius:999px;color:#60665e;font-size:.86rem}.filter.active,.filter:hover{background:var(--green);border-color:var(--green);color:white}.food-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}.food-card{background:var(--paper);border:1px solid var(--line);border-radius:20px;overflow:hidden;transition:transform .2s,box-shadow .2s}.food-card:hover{transform:translateY(-4px);box-shadow:var(--shadow)}.food-image{height:215px;position:relative;overflow:hidden;background:#e8dfd0}.food-image img{width:100%;height:100%;object-fit:cover;display:block}.heart{position:absolute;top:13px;right:13px;background:rgba(255,253,248,.94);width:39px;height:39px;border-radius:50%;font-size:1.15rem;color:#42483f}.heart.saved{color:#d75c4b}.food-content{padding:18px}.food-top{display:flex;justify-content:space-between;align-items:center;gap:10px}.tag{background:#edf1e6;color:var(--green);padding:5px 9px;border-radius:7px;font-size:.72rem;font-weight:800}.rating{font-size:.82rem;font-weight:800}.rating span{color:#d78b39}.food-content h3{margin:12px 0 5px;font-size:1.18rem}.food-content p{color:var(--muted);font-size:.87rem;margin:0 0 14px}.food-meta{display:flex;justify-content:space-between;gap:8px;border-top:1px solid var(--line);padding-top:13px;font-size:.8rem;color:#666d63}.food-meta b{color:var(--ink)}
+.banner{background:var(--green);color:white;border-radius:26px;padding:35px 38px;display:grid;grid-template-columns:1fr auto;gap:25px;align-items:center;overflow:hidden;position:relative}.banner:after{content:"味";position:absolute;font-size:15rem;right:23%;top:-100px;color:rgba(255,255,255,.05);font-weight:900;pointer-events:none}.banner h2{font-size:clamp(1.7rem,3vw,2.5rem);line-height:1.2;margin:0 0 10px;letter-spacing:-.04em}.banner p{margin:0;color:#d7e1d4;max-width:550px}.banner button{position:relative;z-index:1;background:var(--lime);color:var(--green);border-radius:999px;padding:13px 19px;font-weight:900;white-space:nowrap}
+.planner{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:stretch}.planner-copy{padding:10px 0}.planner-copy h2{font-size:2.4rem;line-height:1.2;letter-spacing:-.05em;margin:12px 0}.planner-copy p{color:var(--muted);max-width:440px}.planner-card{background:var(--paper);border:1px solid var(--line);border-radius:22px;padding:24px;box-shadow:var(--shadow)}.field{margin-bottom:15px}.field label{display:block;font-size:.8rem;font-weight:800;margin-bottom:7px}.field select,.field input{width:100%;border:1px solid var(--line);border-radius:12px;background:#fff;padding:12px;color:var(--ink);outline-color:var(--green)}.planner-card button{width:100%;background:var(--orange);color:white;border-radius:12px;padding:13px;font-weight:900}.plan-result{display:none;margin-top:16px;padding:15px;background:#eef2e7;border-radius:13px;color:#334c39;font-size:.9rem}.plan-result.show{display:block}.plan-result h4{margin:0 0 8px}.plan-result ol{padding-left:20px;margin:0}
+footer{margin-top:35px;background:#202b23;color:#eaf0e5;padding:36px 0}.footer-inner{display:flex;justify-content:space-between;gap:25px;align-items:center}.footer-inner p{color:#b8c3b4;font-size:.82rem;margin:6px 0 0}.footer-links{display:flex;gap:18px;color:#cbd4c7;font-size:.85rem}
+.toast{position:fixed;bottom:22px;left:50%;transform:translate(-50%,20px);opacity:0;background:#222820;color:white;padding:12px 18px;border-radius:999px;z-index:10;transition:.25s;pointer-events:none;font-size:.9rem}.toast.show{opacity:1;transform:translate(-50%,0)}
+@media(max-width:850px){.hero{grid-template-columns:1fr;gap:28px;padding-top:25px}.hero-art{min-height:360px}.destinations{grid-template-columns:repeat(2,1fr)}.food-grid{grid-template-columns:repeat(2,1fr)}.planner{grid-template-columns:1fr}.navlinks{display:none}.banner{grid-template-columns:1fr}.banner button{justify-self:start}}
+@media(max-width:540px){.wrap{width:min(100% - 28px,1160px)}nav{height:65px}.nav-cta{padding:9px 13px}.hero{padding-bottom:35px}h1{font-size:2.75rem}.hero-art{min-height:300px}.floating-card{top:18px;max-width:150px;padding:12px}.stamp{width:82px;height:82px;font-size:.68rem}.section-head{align-items:start;flex-direction:column}.destinations{gap:10px}.destination{height:190px;border-radius:15px}.food-grid{grid-template-columns:1fr}.food-image{height:225px}.banner{padding:26px 23px}.footer-inner{align-items:start;flex-direction:column}.footer-links{flex-wrap:wrap}.searchbox button{padding:11px 13px}.searchbox input{padding-left:5px}}
+</style>
+</head>
+<body>
+<header class="wrap">
+  <nav>
+    <a class="brand" href="#"><span class="brand-mark">味</span>味旅<span>TASTETRIP</span></a>
+    <div class="navlinks"><a href="#destinations">探索目的地</a><a href="#food">人氣美食</a><a href="#planner">行程規劃</a></div>
+    <a class="nav-cta" href="#planner">開始尋味 ↗</a>
+  </nav>
+</header>
+<main>
+  <div class="wrap hero">
+    <div>
+      <div class="eyebrow">TRAVEL · TASTE · DISCOVER</div>
+      <h1>旅行的理由，<br>從一口<em>美味</em>開始。</h1>
+      <p>把在地人推薦的好味道，放進你的旅行地圖。發現巷弄小店、安排順路美食，讓每一趟旅程都值得回味。</p>
+      <form class="searchbox" id="searchForm">
+        <input id="searchInput" aria-label="搜尋目的地或美食" placeholder="搜尋城市、料理或店家…" />
+        <button type="submit">開始探索 ↗</button>
+      </form>
+      <div class="hero-note"><div class="avatars"><span>🍜</span><span>🥟</span><span>🍧</span></div><span>從在地小吃到人氣名店，找到你的下一口驚喜。</span></div>
+    </div>
+    <div class="hero-art">
+      <div class="hero-photo">
+        <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1100&q=85" alt="溫暖熱鬧的餐廳用餐空間">
+        <div class="photo-overlay"></div>
+        <div class="photo-caption"><strong>把台灣，吃成一場旅行</strong><small>Local flavors, unforgettable memories.</small></div>
+      </div>
+      <div class="floating-card"><div class="stars">★★★★★</div><b>在地人的口袋名單</b><small>好吃、好玩、好好逛</small></div>
+      <div class="stamp">LOCAL<br>FLAVORS<br>✦ 旅行提案</div>
+    </div>
+  </div>
+
+  <section class="wrap" id="destinations">
+    <div class="section-head"><div><div class="eyebrow">PICK YOUR NEXT STOP</div><h2>今天，想去哪裡吃？</h2></div><p>從北到南，從城市散步到海線小旅行，挑一個目的地，開始收集美食回憶。</p></div>
+    <div class="destinations">
+      <a class="destination" href="#food" data-destination="台北"><img src="https://images.unsplash.com/photo-1470004914212-05527e49370b?auto=format&fit=crop&w=700&q=80" alt="城市街景"><span class="dest-count">城市漫遊</span><div class="dest-info"><h3>台北 Taipei</h3><span>咖啡廳・夜市・巷弄料理</span></div></a>
+      <a class="destination" href="#food" data-destination="台中"><img src="https://images.unsplash.com/photo-1519501025264-65ba15a82390?auto=format&fit=crop&w=700&q=80" alt="城市夜景"><span class="dest-count">慢活日常</span><div class="dest-info"><h3>台中 Taichung</h3><span>甜點・早午餐・特色餐館</span></div></a>
+      <a class="destination" href="#food" data-destination="台南"><img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=700&q=80" alt="餐廳空間"><span class="dest-count">古城尋味</span><div class="dest-info"><h3>台南 Tainan</h3><span>古早味・牛肉湯・小吃</span></div></a>
+      <a class="destination" href="#food" data-destination="宜蘭"><img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=700&q=80" alt="山海自然風景"><span class="dest-count">山海小旅行</span><div class="dest-info"><h3>宜蘭 Yilan</h3><span>海鮮・田園・溫泉美食</span></div></a>
+    </div>
+  </section>
+
+  <section class="wrap" id="food">
+    <div class="section-head"><div><div class="eyebrow">THE TASTY LIST</div><h2>本週靈感美食</h2></div><a class="text-link" href="#planner">把美食排進行程 ↗</a></div>
+    <div class="filters" role="group" aria-label="美食分類">
+      <button class="filter active" data-filter="全部">全部靈感</button><button class="filter" data-filter="小吃">在地小吃</button><button class="filter" data-filter="咖啡">咖啡甜點</button><button class="filter" data-filter="正餐">正餐料理</button><button class="filter" data-filter="景觀">景觀餐廳</button>
+    </div>
+    <div class="food-grid" id="foodGrid">
+      <article class="food-card" data-category="小吃" data-keywords="台南 牛肉湯 小吃 早餐">
+        <div class="food-image"><img src="https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&w=900&q=85" alt="熱騰騰的麵食料理"><button class="heart" aria-label="收藏美食" aria-pressed="false">♡</button></div>
+        <div class="food-content"><div class="food-top"><span class="tag">在地小吃</span><span class="rating"><span>★</span> 4.8</span></div><h3>台南・早起的鮮味</h3><p>用一碗熱湯開啟古城早晨，感受市場周邊的日常風景。</p><div class="food-meta"><span>📍 台南市區</span><b>約 $100–200</b></div></div>
+      </article>
+      <article class="food-card" data-category="咖啡" data-keywords="台中 咖啡 甜點 咖啡廳">
+        <div class="food-image"><img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=900&q=85" alt="咖啡與咖啡器具"><button class="heart" aria-label="收藏美食" aria-pressed="false">♡</button></div>
+        <div class="food-content"><div class="food-top"><span class="tag">咖啡甜點</span><span class="rating"><span>★</span> 4.7</span></div><h3>台中・午後咖啡散步</h3><p>找一間有氣氛的小店，搭配手沖咖啡與當日甜點。</p><div class="food-meta"><span>📍 台中街區</span><b>約 $150–300</b></div></div>
+      </article>
+      <article class="food-card" data-category="正餐" data-keywords="台北 台灣料理 家常 正餐">
+        <div class="food-image"><img src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=900&q=85" alt="色彩豐富的餐點"><button class="heart" aria-label="收藏美食" aria-pressed="false">♡</button></div>
+        <div class="food-content"><div class="food-top"><span class="tag">正餐料理</span><span class="rating"><span>★</span> 4.6</span></div><h3>台北・一桌台灣味</h3><p>用多樣家常風味認識城市，適合和朋友一起分享。</p><div class="food-meta"><span>📍 台北市區</span><b>約 $200–450</b></div></div>
+      </article>
+      <article class="food-card" data-category="景觀" data-keywords="宜蘭 山海 景觀 海景 旅行">
+        <div class="food-image"><img src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&w=900&q=85" alt="氣氛舒適的餐廳"><button class="heart" aria-label="收藏美食" aria-pressed="false">♡</button></div>
+        <div class="food-content"><div class="food-top"><span class="tag">景觀餐廳</span><span class="rating"><span>★</span> 4.5</span></div><h3>宜蘭・山海慢食時光</h3><p>把用餐和風景放進同一段旅程，留一點時間給自己。</p><div class="food-meta"><span>📍 宜蘭山海線</span><b>約 $250–600</b></div></div>
+      </article>
+      <article class="food-card" data-category="小吃" data-keywords="台北 夜市 小吃 胡椒餅">
+        <div class="food-image"><img src="https://images.unsplash.com/photo-1563245285-5e8d9e6a8c9c?auto=format&fit=crop&w=900&q=85" alt="分享型小吃"><button class="heart" aria-label="收藏美食" aria-pressed="false">♡</button></div>
+        <div class="food-content"><div class="food-top"><span class="tag">在地小吃</span><span class="rating"><span>★</span> 4.7</span></div><h3>台北・夜市尋寶地圖</h3><p>邊走邊吃，從熟悉的小吃到意想不到的新口味。</p><div class="food-meta"><span>📍 台北夜市區</span><b>約 $50–200</b></div></div>
+      </article>
+      <article class="food-card" data-category="咖啡" data-keywords="台南 甜點 冰品 咖啡">
+        <div class="food-image"><img src="https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop&w=900&q=85" alt="甜點與午後時光" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop&w=900&q=85'"><button class="heart" aria-label="收藏美食" aria-pressed="false">♡</button></div>
+        <div class="food-content"><div class="food-top"><span class="tag">咖啡甜點</span><span class="rating"><span>★</span> 4.8</span></div><h3>台南・甜點補給站</h3><p>午後走累了，就用一份冰品或甜點補充旅行能量。</p><div class="food-meta"><span>📍 台南老街區</span><b>約 $80–220</b></div></div>
+      </article>
+    </div>
+    <p id="noResults" style="display:none;color:var(--muted);padding:20px 0">沒有符合的項目，試試其他關鍵字或分類。</p>
+  </section>
+
+  <section class="wrap">
+    <div class="banner"><div><h2>別只收藏景點，<br>也收藏一口難忘的味道。</h2><p>把想吃的店、想去的城市，整理成一趟更順路的旅行。</p></div><button onclick="document.querySelector('#planner').scrollIntoView({behavior:'smooth'})">規劃我的美食旅程 ↗</button></div>
+  </section>
+
+  <section class="wrap" id="planner">
+    <div class="planner">
+      <div class="planner-copy"><div class="eyebrow">YOUR TASTE JOURNEY</div><h2>讓下一趟旅行，<br>從美食開始規劃。</h2><p>選擇目的地、旅程天數與口味偏好，快速產生一份可以再調整的美食旅行靈感。這是示範行程，出發前請確認店家營業時間與實際資訊。</p><div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:22px"><span class="tag">✦ 目的地導向</span><span class="tag">✦ 口味偏好</span><span class="tag">✦ 彈性安排</span></div></div>
+      <div class="planner-card">
+        <div class="field"><label for="city">想去的城市</label><select id="city"><option value="台南">台南 Tainan</option><option value="台中">台中 Taichung</option><option value="台北">台北 Taipei</option><option value="宜蘭">宜蘭 Yilan</option></select></div>
+        <div class="field"><label for="days">旅行天數</label><select id="days"><option value="1">一日小旅行</option><option value="2" selected>兩天一夜</option><option value="3">三天兩夜</option></select></div>
+        <div class="field"><label for="taste">最想吃的類型</label><select id="taste"><option value="在地小吃">在地小吃</option><option value="咖啡甜點">咖啡甜點</option><option value="特色正餐">特色正餐</option><option value="都想體驗">通通想體驗</option></select></div>
+        <button id="makePlan">生成美食旅行提案 ✦</button>
+        <div class="plan-result" id="planResult" aria-live="polite"></div>
+      </div>
+    </div>
+  </section>
+</main>
+<footer><div class="wrap footer-inner"><div><a class="brand" href="#" style="color:white"><span class="brand-mark" style="background:var(--orange)">味</span>味旅 <span style="color:#dce8c9">TASTETRIP</span></a><p>讓每一次出發，都有值得回味的理由。</p></div><div class="footer-links"><a href="#destinations">探索目的地</a><a href="#food">美食靈感</a><a href="#planner">行程規劃</a></div></div></footer>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script>
+const filters=[...document.querySelectorAll('.filter')], cards=[...document.querySelectorAll('.food-card')], searchInput=document.querySelector('#searchInput');
+let activeFilter='全部', query='';
+function applyFilters(){let count=0;cards.forEach(card=>{const matchCat=activeFilter==='全部'||card.dataset.category===activeFilter;const text=(card.innerText+' '+card.dataset.keywords).toLowerCase();const matchQuery=!query||text.includes(query.toLowerCase());const show=matchCat&&matchQuery;card.style.display=show?'':'none';if(show)count++});document.querySelector('#noResults').style.display=count?'none':'block'}
+filters.forEach(btn=>btn.addEventListener('click',()=>{filters.forEach(b=>b.classList.remove('active'));btn.classList.add('active');activeFilter=btn.dataset.filter;applyFilters()}));
+document.querySelector('#searchForm').addEventListener('submit',e=>{e.preventDefault();query=searchInput.value.trim();activeFilter='全部';filters.forEach(b=>b.classList.toggle('active',b.dataset.filter==='全部'));applyFilters();document.querySelector('#food').scrollIntoView({behavior:'smooth'});if(query)notify('已為你篩選「'+query+'」相關靈感')});
+document.querySelectorAll('[data-destination]').forEach(link=>link.addEventListener('click',()=>{searchInput.value=link.dataset.destination;query=link.dataset.destination;activeFilter='全部';filters.forEach(b=>b.classList.toggle('active',b.dataset.filter==='全部'));applyFilters()}));
+document.querySelectorAll('.heart').forEach(btn=>btn.addEventListener('click',()=>{const saved=btn.classList.toggle('saved');btn.textContent=saved?'♥':'♡';btn.setAttribute('aria-pressed',saved?'true':'false');notify(saved?'已加入你的收藏':'已從收藏移除')}));
+function notify(message){const t=document.querySelector('#toast');t.textContent=message;t.classList.add('show');clearTimeout(window.toastTimer);window.toastTimer=setTimeout(()=>t.classList.remove('show'),2300)}
+const itinerary={
+'台南':{food:['古城早餐：先找一碗熱湯或傳統早餐','巷弄散步：挑一間在地小吃補充能量','午後甜點：安排冰品、豆花或咖啡','晚餐收尾：用一桌台南風味結束旅程'],coffee:['早午餐與手沖咖啡','老街散步搭配特色甜點','傍晚找間安靜咖啡館'],dinner:['在地午餐：選擇台菜或特色麵食','下午以小吃作為散步補給','晚餐安排多人分享料理']},
+'台中':{food:['早午餐：從人氣早餐或市場小吃開始','街區漫遊：安排一間特色小店','午後甜點：咖啡搭配當日甜點','晚餐：挑選適合分享的在地料理'],coffee:['早午餐咖啡店','特色甜點店巡禮','挑一間氛圍咖啡館放慢步調'],dinner:['早午餐或市場小吃','特色餐館享用午餐','晚餐選擇合菜或地方料理']},
+'台北':{food:['早餐：從傳統早餐店開啟行程','午間探索：走訪市場或街區小吃','午後休息：咖啡與甜點','晚餐：安排夜市或特色餐館'],coffee:['街區早午餐','選一間風格咖啡館','甜點店或夜間咖啡散步'],dinner:['傳統市場午餐','安排一餐特色料理','晚間用夜市小吃收尾']},
+'宜蘭':{food:['早餐：品嚐在地早餐或市場小吃','中午：安排海鮮或地方料理','午後：田園、老街散步與甜點','晚餐：依交通路線選擇在地餐館'],coffee:['田園咖啡店','午後甜點與景觀休息','傍晚找間舒服的小店'],dinner:['市場小吃作為早餐','午餐安排海鮮或地方料理','晚餐選擇在地特色餐館']}
+};
+document.querySelector('#makePlan').addEventListener('click',()=>{const city=document.querySelector('#city').value,days=Number(document.querySelector('#days').value),taste=document.querySelector('#taste').value;let key=taste==='咖啡甜點'?'coffee':taste==='特色正餐'?'dinner':'food';let items=itinerary[city][key].slice();if(taste==='都想體驗')items=itinerary[city].food.slice();const result=document.querySelector('#planResult');let list=[];for(let d=1;d<=days;d++){list.push('<li><b>第'+d+'天</b><ul><li>'+items[(d-1)%items.length]+'</li><li>'+(d===days?'保留彈性時間，依交通與營業時間調整':'把附近景點和用餐點排在同一區，減少來回移動')+'</li></ul></li>')}result.innerHTML='<h4>✦ '+city+'・'+days+'天美食旅行靈感</h4><ol>'+list.join('')+'</ol><p style="margin:10px 0 0;font-size:.78rem">此為行程靈感，不代表特定店家已查證或預約。</p>';result.classList.add('show');result.scrollIntoView({behavior:'smooth',block:'nearest'})});
+</script>
+</body>
+</html>
